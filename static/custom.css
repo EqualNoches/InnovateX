@@ -1,0 +1,18 @@
+body {
+	font-family: Arial, sans-serif;
+}
+
+.product-container {
+	border: 1px solic #ccc;
+	padding: 10px;
+	margin-bottom: 10px;
+	width: 300px;
+}
+
+.product-name {
+	font-weight: bold;
+}
+
+.product-price {
+	color: green;
+}

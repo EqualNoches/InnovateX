@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link
+			rel="stylesheet"
+			href="{% static 'custom.css' %}"
+			type="text/css" />
+	</head>
+	<body>
+		{% if can_display_name == True %}
+		<h1>Name: {{ name }}</h1>
+		{% endif %}
+	</body>
+</html>
