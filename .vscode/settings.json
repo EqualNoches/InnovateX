@@ -7,5 +7,12 @@
             "database": "db.sqlite3",
             "name": "company_webpage_sqlite"
         }
-    ]
+    ],
+    "[html]": {
+        "editor.defaultFormatter": "monosans.djlint"
+    },
+    "[django-html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
 }
+

@@ -1,5 +1,10 @@
 from django.contrib import admin
-from app.models import GeneralInfo, Service, Testimonial
+from app.models import (
+    GeneralInfo,
+    Service,
+    Testimonial,
+    FrequentlyAskedQuestion
+)
 
 @admin.register(GeneralInfo)
 class GeneralInfoAdmin(admin.ModelAdmin):
@@ -25,8 +30,9 @@ class GeneralInfoAdmin(admin.ModelAdmin):
     #     return False
 
     # #show you can set field to idsable update
+
     readonly_fields = [
-        'email'
+        'email',
     ]
 
 
@@ -41,8 +47,8 @@ class ServiceAdmin(admin.ModelAdmin):
     
     search_fields = [
         "title",
-        "description"
-    ]
+        "description",
+        ]
 
 
 
@@ -59,3 +65,11 @@ class TestimonialAdmin(admin.ModelAdmin):
         return '*' * obj.rating_count
     
     display_rating_count.short_description = "Rating"
+
+@admin.register(FrequentlyAskedQuestion)
+class FrequentlyAskedQuestionsAdmin(admin.ModelAdmin):
+    list_display = [
+        "question",
+        "answer",
+    ]
+

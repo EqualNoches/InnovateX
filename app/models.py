@@ -25,7 +25,6 @@ class Service(models.Model):
 
 class Testimonial(models.Model):
     user_image = models.CharField(max_length=225, blank = True, null = True)
-
     stars_count = [
         (1, 'One'),
         (2, 'Two'),
@@ -40,3 +39,12 @@ class Testimonial(models.Model):
 
     def __str__(self):
         return f"{self.username} - {self.user_job_title}"
+
+class FrequentlyAskedQuestion(models.Model):
+    question = models.CharField(max_length=255)
+    answer = models.TextField()
+
+    def __str__(self):
+        return self.question
+    
+    
