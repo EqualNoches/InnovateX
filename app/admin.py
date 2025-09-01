@@ -3,7 +3,8 @@ from app.models import (
     GeneralInfo,
     Service,
     Testimonial,
-    FrequentlyAskedQuestion
+    FrequentlyAskedQuestion,
+    ContactFormLog
 )
 
 @admin.register(GeneralInfo)
@@ -71,5 +72,15 @@ class FrequentlyAskedQuestionsAdmin(admin.ModelAdmin):
     list_display = [
         "question",
         "answer",
+    ]
+
+
+@admin.register(ContactFormLog)
+class ContactFormLogAdmin(admin.ModelAdmin):
+
+    list_display = [
+        'email',
+        'is_success',
+        'action_time',
     ]
 
