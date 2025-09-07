@@ -4,7 +4,9 @@ from app.models import (
     Service,
     Testimonial,
     FrequentlyAskedQuestion,
-    ContactFormLog
+    ContactFormLog,
+    Category,
+    Blogs
 )
 
 @admin.register(GeneralInfo)
@@ -83,4 +85,27 @@ class ContactFormLogAdmin(admin.ModelAdmin):
         'is_success',
         'action_time',
     ]
+
+
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+
+    list_display = [
+        'name_of_category',
+    ]
+
+
+@admin.register(Blogs)
+class BlogsAdmin(admin.ModelAdmin):
+
+    list_display = [
+        'title',
+        'author',
+        'published_date',
+        'category',
+        'blog_image'
+    ]
+
+
+
 

@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 class GeneralInfo(models.Model):
     company_name = models.CharField(max_length=255, default="Company")
@@ -59,3 +60,16 @@ class ContactFormLog(models.Model):
     def __str__(self):
         return self.email
     
+class Category(models.Model):
+    name_of_category = models.CharField(max_length=50)
+
+class Blogs(models.Model):
+    blog_image = models.CharField(max_length=255, null=True, blank=True)
+    title = models.CharField(max_length=100)
+    author = models.CharField(max_length=100)
+    published_date = models.DateField(blank= False, default=timezone.now)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE )
+    content = models.TextField()
+
+    def __str__(self):
+        return self.title()
