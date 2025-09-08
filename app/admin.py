@@ -5,6 +5,7 @@ from app.models import (
     Testimonial,
     FrequentlyAskedQuestion,
     ContactFormLog,
+    Author,
     Category,
     Blogs
 )
@@ -95,17 +96,23 @@ class CategoryAdmin(admin.ModelAdmin):
     ]
 
 
+@admin.register(Author)
+class AuthorAdmin(admin.ModelAdmin):
+
+    list_display = [
+        'first_name',
+        'last_name',
+    ]
+
+
+
 @admin.register(Blogs)
 class BlogsAdmin(admin.ModelAdmin):
 
     list_display = [
         'title',
-        'author',
         'published_date',
         'category',
         'blog_image'
     ]
-
-
-
 

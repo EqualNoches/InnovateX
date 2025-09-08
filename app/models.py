@@ -59,16 +59,29 @@ class ContactFormLog(models.Model):
 
     def __str__(self):
         return self.email
+
+class Author(models.Model):
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50, null= True, blank=True)
+    Country= models.CharField(max_length=50)
+    joined_at = models.DateField(null=True, blank=True)
     
+    def __str__(self):
+        return self.first_name
+
+
 class Category(models.Model):
     name_of_category = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name_of_category
 
 class Blogs(models.Model):
     blog_image = models.CharField(max_length=255, null=True, blank=True)
     title = models.CharField(max_length=100)
-    author = models.CharField(max_length=100)
+    author = models.ForeignKey(Author, on_delete=models.PROTECT, null=True, blank=False)
     published_date = models.DateField(blank= False, default=timezone.now)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE )
+    category = models.ForeignKey(Category, on_delete=models.PROTECT, null=True, blank=True)
     content = models.TextField()
 
     def __str__(self):
