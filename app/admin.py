@@ -39,7 +39,6 @@ class GeneralInfoAdmin(admin.ModelAdmin):
         'email',
     ]
 
-
 @admin.register(Service)
 class ServiceAdmin(admin.ModelAdmin):
     
@@ -53,8 +52,6 @@ class ServiceAdmin(admin.ModelAdmin):
         "title",
         "description",
         ]
-
-
 
 @admin.register(Testimonial)
 class TestimonialAdmin(admin.ModelAdmin):
@@ -77,7 +74,6 @@ class FrequentlyAskedQuestionsAdmin(admin.ModelAdmin):
         "answer",
     ]
 
-
 @admin.register(ContactFormLog)
 class ContactFormLogAdmin(admin.ModelAdmin):
 
@@ -87,7 +83,6 @@ class ContactFormLogAdmin(admin.ModelAdmin):
         'action_time',
     ]
 
-
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
 
@@ -95,16 +90,13 @@ class CategoryAdmin(admin.ModelAdmin):
         'name_of_category',
     ]
 
-
 @admin.register(Author)
 class AuthorAdmin(admin.ModelAdmin):
 
     list_display = [
         'first_name',
         'last_name',
-    ]
-
-
+        ]
 
 @admin.register(Blogs)
 class BlogsAdmin(admin.ModelAdmin):
