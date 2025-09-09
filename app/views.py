@@ -10,15 +10,22 @@ from app.models import (
     Service,
     Testimonial,
     FrequentlyAskedQuestion,
-    ContactFormLog
+    ContactFormLog,
+    Blogs
 )
 # Create your views here.
 def index(request):
 
     general_info = GeneralInfo.objects.first()
+
     services = Service.objects.all()
+
     testimonials = Testimonial.objects.all()
+
     faqs = FrequentlyAskedQuestion.objects.all()
+
+    recent_blogs = Blogs.objects.all().order_by("published_date")
+
     context = {
         "company_name": general_info.company_name,
         "location": general_info.location,
@@ -33,6 +40,7 @@ def index(request):
         "services":  services,
         "testimonials" : testimonials,
         'frequently_asked_question': faqs,
+        "recent_blogs": recent_blogs,
     }
 
     print(f"context: {context}")
@@ -88,3 +96,21 @@ def contact_form(request):
 
     return redirect('home')
 
+def blog_detail(request, blog_id):
+    blog = Blogs.objects.get(id = blog_id)
+
+    recent_blogs = Blogs.objects.all().exclude(id=blog_id).order_by("published_date")[:2]
+    context = {
+        "blog": blog,
+        "recent_blogs": recent_blogs
+    }
+    
+    return render(request, "blog_details.html", context)
+
+def blogs(request):
+    
+    all_blogs = Blogs.objects.all()
+    context={
+        "all_blogs"
+    }
+    return render(request, "blogs.html", context)
