@@ -66,7 +66,9 @@ As this is a work in progress, these instructions will evolve. For now, if you'd
     python manage.py runserver
     ```
 
-The application will be running at `http://127.0.0.1:8000/`.
+The application will be running at `http://127.0.0.1:8000/` locally.
+
+You can also see a preview running at `https://equalnoches.pythonanywhere.com/`.
 
 ## 🤝 Contributing
 
