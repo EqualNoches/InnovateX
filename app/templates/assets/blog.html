@@ -26,7 +26,7 @@
       </nav>
     </div><!-- End Breadcrumbs -->
 
-    {% if blog.count() == 0 %}
+    {% if blog.count == 0 %}
     
 
 
@@ -37,7 +37,7 @@
 
         <div class="row gy-4 posts-list">
 
-          {% for blog in all_blogs %}
+          {% for blog in blogs%}
           <div class="col-xl-4 col-md-6">
             <article>
 
@@ -60,7 +60,7 @@
                 <div class="post-meta">
                   <p class="post-author-list">{{ blog.title }}</p>
                   <p class="post-date">
-                    <time datetime="2022-01-01">{{ blog.published_date | date: "M j, Y" }}</time>
+                    <time datetime="2022-01-01">{{ blog.published_date|date:"M d,Y" }}</time>
                   </p>
                 </div>
               </div>
@@ -72,9 +72,16 @@
 
         <div class="blog-pagination">
           <ul class="justify-content-center">
-            <li class="active"><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
+            {% if blogs.has_previous %}
+            <li><a href=" ?page={{blog.previous_page_number}}">previous</a></li>
+            {% endif %}
+
+            <li class="active"><a href="?page={{ blog.next_page_number }}"></a></li>
+
+            {% if blog.has_next %}
+            <li><a href="?page={{ blog.next_page_number }}">{{ blog.next_page_number }}</a></li>
+            
+            {% endif %}
           </ul>
         </div><!-- End blog pagination -->
 
