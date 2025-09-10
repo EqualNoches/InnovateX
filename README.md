@@ -1,4 +1,4 @@
-# InnovateX: A Django Learning Adventure
+# InnovateX
 
 Welcome to **InnovateX**! This repository is my personal playground and learning space as I dive into the wonderful world of web development with the Django framework.
 
